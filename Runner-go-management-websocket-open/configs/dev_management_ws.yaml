@@ -1,0 +1,78 @@
+base:
+  is_debug: false
+  domain: "http://127.0.0.1:9999"
+  max_concurrency: 1000000
+
+http:
+  port: 58887
+
+mysql:
+  username: "root"
+  password: "123456"
+  host: "127.0.0.1"
+  port: 3306
+  dbname: "runnergo"
+  charset: "utf8mb4"
+
+mongodb:
+  dsn: "mongodb://127.0.0.1:27017/runnergo"
+  database: runnergo
+  pool_size: 20
+
+jwt:
+  issuer: "runnergo"
+  secret: "kp#test"
+
+
+clients:
+  runner:
+    run_api: "http://127.0.0.1:8002/runner/run_api" 
+    run_scene: "http://127.0.0.1:8002/runner/run_scene"
+    stop_scene: "http://127.0.0.1:8002/runner/stop_scene"
+    run_plan: "http://127.0.0.1:8002/runner/run_plan"
+    stop_plan: "http://127.0.0.1:8002/runner/stop"
+
+proof:
+  info_log: "/data/logs/RunnerGo/RunnerGo_management-info.log"
+  err_log: "/data/logs/RunnerGo/RunnerGo_management-err.log"
+
+log:
+  InfoPath: "/data/logs/RunnerGo/RunnerGo_management-info.log"
+  ErrPath: "/data/logs/RunnerGo/RunnerGo_management-err.log"
+
+redis:
+  address: "127.0.0.1:6379"
+  password: "mypassword"
+  db: 0
+
+redisReport:
+  address: "127.0.0.1:6379"
+  password: "mypassword"
+  db: 0
+
+smtp:
+  host:
+  port:
+  email:
+  password:
+
+sms:
+  id:
+  secret:
+
+inviteData:
+  AesSecretKey: "runnergo"
+
+#初始化压力机可使用分区
+canUsePartitionTotalNum: 2
+
+#单台压力机能快速负载的并发数
+oneMachineCanConcurrenceNum: 5000
+
+#运行计划相关配置
+machineConfig:
+  MachineAliveTime: 10      # 压力机上报心跳超时时间，单位：秒
+  InitPartitionTotalNum: 2  # 初始化可用kafka分区数量设置
+  CpuTopLimit: 65           # 可参与压测的压力机cpu使用率上限
+  MemoryTopLimit: 65        # 可参与压测的压力机memory使用率上限
+  DiskTopLimit: 55          # 可参与压测的压力机disk使用率上限

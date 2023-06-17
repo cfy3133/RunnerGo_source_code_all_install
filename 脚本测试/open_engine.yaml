@@ -1,0 +1,53 @@
+
+
+heartbeat:
+  port: 8002
+  region: "北京"
+  duration: 2
+  resources: 5
+
+
+http:
+  address: "0.0.0.0:8002"                                    #本服务host
+  port: 8002                                               #本服务端口
+
+redis:
+  address: ""
+  password: ""
+  db: 1
+
+reportRedis:
+  address: ""
+  password: ""
+  db: 1
+
+kafka:
+  address: ""
+  topIc: "runnergo"
+
+
+mongo:
+  dsn: "mongodb://username:password@ip:27017/tablename"
+  database: "runnergo_open"
+  stressDebugTable: "stress_debug"
+  sceneDebugTable: "scene_debug"
+  apiDebugTable: "api_debug"
+  debugTable: "debug_status"
+  autoTable: "auto_report"
+
+
+
+machine:
+  maxGoroutines: 5000
+  serverType: 1
+  netName: ""
+  diskName: ""
+
+
+log:
+  path: "/data/logs/RunnerGo/RunnerGo-engine-info.log"         #本服务log存放地址
+
+
+management:
+  notifyStopStress: "https://managername/management/api/v1/plan/notify_stop_stress"                          #management服务停止性能任务接口
+  notifyRunFinish: "https://managername/management/api/v1/auto_plan/notify_run_finish"                           #management服务任务完成接口

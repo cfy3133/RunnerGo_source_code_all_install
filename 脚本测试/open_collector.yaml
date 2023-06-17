@@ -1,0 +1,26 @@
+http:
+  host: "0.0.0.0:20125"
+
+kafka:
+  host: "****:9092"
+  topic: "****"
+  key: "kafka:report:partition"
+  num: 2
+  totalKafkaPartition: "TotalKafkaPartition"
+  stressBelongPartition: "StressBelongPartition"
+
+reportRedis:
+  address: "****:6398"
+  password: "***"
+  db: 1
+
+redis:
+  address: "****:6398"
+  password: "****"
+  db: 1
+
+log:
+  path: "/data/logs/RunnerGo/RunnerGo-collector-info.log"
+
+management:
+  notifyStopStress: "https://****/management/api/v1/plan/notify_stop_stress"
